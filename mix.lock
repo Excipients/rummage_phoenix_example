@@ -17,5 +17,5 @@
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []},
   "postgrex": {:hex, :postgrex, "0.13.0", "e101ab47d0725955c5c8830ae8812412992e02e4bd9db09e17abb0a5d82d09c7", [:mix], [{:connection, "~> 1.0", [hex: :connection, optional: false]}, {:db_connection, "~> 1.1", [hex: :db_connection, optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, optional: false]}]},
   "ranch": {:hex, :ranch, "1.3.2", "e4965a144dc9fbe70e5c077c65e73c57165416a901bd02ea899cfd95aa890986", [:rebar3], []},
-  "rummage_ecto": {:hex, :rummage_ecto, "0.5.0", "62cefdda05f6d8b4b181ce84ddbf2d0613a37d69591e896a36ca33ee394b593e", [:mix], [{:ecto, "~> 2.1", [hex: :ecto, optional: false]}]},
-  "rummage_phoenix": {:hex, :rummage_phoenix, "0.5.0", "d2f1a0786ee1265bbd32c52df8b868237bfbb464ec7910f780b8254a094b1723", [:mix], [{:phoenix, "~> 1.2.1", [hex: :phoenix, optional: false]}, {:rummage_ecto, "~> 0.5.0", [hex: :rummage_ecto, optional: true]}]}}
+  "rummage_ecto": {:hex, :rummage_ecto, "0.6.0", "c06b4757e1c744758500382348f444e5d4db2c83113dc35d05fe320976522fab", [:mix], [{:ecto, "~> 2.1", [hex: :ecto, optional: false]}]},
+  "rummage_phoenix": {:hex, :rummage_phoenix, "0.6.0", "7ecdd590dea77f441b77cfe9fa7e772213c752fa426a1592b577117b0165c6a0", [:mix], [{:phoenix, "~> 1.2.1", [hex: :phoenix, optional: false]}, {:rummage_ecto, "~> 0.6.0", [hex: :rummage_ecto, optional: false]}]}}

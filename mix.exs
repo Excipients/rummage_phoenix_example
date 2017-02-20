@@ -36,8 +36,8 @@ defmodule RummagePhoenixExample.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:rummage_ecto, "~> 0.5.0"},
-     {:rummage_phoenix, "~> 0.5.0"},
+     {:rummage_ecto, "~> 0.6.0"},
+     {:rummage_phoenix, "~> 0.6.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end
