@@ -1,13 +1,24 @@
 <h2>Listing products</h2>
 
-<%= search_form(@conn, [:name], @rummage) %>
+<%= search_form(@conn, @rummage, [fields:
+  [
+    name: %{label: "Search by Product Name", search_type: "ilike"},
+    price: %{label: "Search by Price", search_type: "eq"},
+  ], button_class: "btn",
+  ]) %>
+
+<%= search_form(@conn, @rummage, [fields:
+  [
+    category_name: %{label: "Search by Category Name", search_type: "ilike", assoc: ["category"]}
+  ], button_class: "btn",
+  ]) %>
 
 <table class="table">
   <thead>
     <tr>
-      <th><%= sort_link :name, @conn, @rummage %></th>
-      <th><%= sort_link :price, @conn, @rummage %></th>
-      <th><%= sort_link :category, @conn, @rummage %></th>
+      <th><%= sort_link @conn, @rummage, [field: :name, ci: true] %></th>
+      <th><%= sort_link @conn, @rummage, [field: :price] %></th>
+      <th><%= sort_link @conn, @rummage, [field: :category_name, name: "Category Name", assoc: ["category"]] %></th>
 
       <th></th>
     </tr>
@@ -17,7 +28,7 @@
     <tr>
       <td><%= product.name %></td>
       <td><%= product.price %></td>
-      <td><%= product.category %></td>
+      <td><%= product.category.category_name %></td>
 
       <td class="text-right">
         <%= link "Show", to: product_path(@conn, :show, product), class: "btn btn-default btn-xs" %>

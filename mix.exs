@@ -4,7 +4,7 @@ defmodule RummagePhoenixExample.Mixfile do
   def project do
     [app: :rummage_phoenix_example,
      version: "0.0.1",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -36,8 +36,8 @@ defmodule RummagePhoenixExample.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:rummage_ecto, "~> 0.6.0"},
-     {:rummage_phoenix, "~> 0.6.0"},
+     {:rummage_ecto, "~> 1.0.0"},
+     {:rummage_phoenix, "~> 1.0.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end
@@ -49,8 +49,22 @@ defmodule RummagePhoenixExample.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+    [
+      "ecto.setup": [
+        "ecto.create",
+        "ecto.migrate",
+        "run priv/repo/seeds.exs"
+      ],
+     "ecto.reset": [
+        "ecto.drop",
+        "ecto.setup"
+      ],
+     "test": [
+        # "ecto.drop",
+        "ecto.create --quiet",
+        "ecto.migrate",
+        "test"
+      ],
+    ]
   end
 end
