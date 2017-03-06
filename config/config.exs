@@ -17,6 +17,10 @@ config :rummage_phoenix_example, RummagePhoenixExample.Endpoint,
   pubsub: [name: RummagePhoenixExample.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# config :rummage_ecto, Rummage.Ecto, [
+#   default_repo: RummagePhoenixExample.Repo,
+# ]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

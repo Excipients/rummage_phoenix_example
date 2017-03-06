@@ -1,14 +1,14 @@
 defmodule RummagePhoenixExample.ProductController do
   use RummagePhoenixExample.Web, :controller
-  use Rummage.Phoenix.Controller, struct: :product, helper: RummagePhoenixExample.Router.Helpers
-
+  use Rummage.Phoenix.Controller
   alias RummagePhoenixExample.Product
 
   def index(conn, params) do
     {query, rummage} = Product
       |> Product.rummage(params["rummage"])
 
-    products = Repo.all(query)
+    products = Repo.all(query) |> Repo.preload(:category)
+
     render conn,
       "index.html",
       products: products,
