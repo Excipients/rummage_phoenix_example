@@ -10,16 +10,12 @@ config :rummage_phoenix_example,
   ecto_repos: [RummagePhoenixExample.Repo]
 
 # Configures the endpoint
-config :rummage_phoenix_example, RummagePhoenixExample.Endpoint,
+config :rummage_phoenix_example, RummagePhoenixExampleWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "Ay3A7vVGiDn/5Tqpbk8K/dlE2QRhI5OFQ0cTN5JGad3q+5vMdZYUuDKM9AvjX7xD",
-  render_errors: [view: RummagePhoenixExample.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "FaN896YLL9gKwvHuBqbwLNJidoUlTbLeRDw/Zd9CYLnsDLO9BqyxspTjEWj/dDZY",
+  render_errors: [view: RummagePhoenixExampleWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: RummagePhoenixExample.PubSub,
            adapter: Phoenix.PubSub.PG2]
-
-# config :rummage_ecto, Rummage.Ecto, [
-#   default_repo: RummagePhoenixExample.Repo,
-# ]
 
 # Configures Elixir's Logger
 config :logger, :console,
