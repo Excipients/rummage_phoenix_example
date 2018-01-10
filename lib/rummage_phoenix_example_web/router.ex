@@ -17,10 +17,6 @@ defmodule RummagePhoenixExampleWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/categories", CategoryController, only: [:index]
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", RummagePhoenixExampleWeb do
-  #   pipe_through :api
-  # end
 end
