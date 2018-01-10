@@ -25,6 +25,8 @@ This app currently uses `rummage_phoenix, 1.3.0-rc.0`
 - To seed the data: (from application's root directory)
   - `$ mix run priv/repo/seeds.exs`
 
+- Make sure to run `cd assets ; npm install` for assets
+
 - Start up a `$ mix phx.server` and play with `rummage_phoenix`
 
 ## Things to Try out (in the browser):
