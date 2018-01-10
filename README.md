@@ -1,20 +1,32 @@
 # RummagePhoenixExample
 
-To start your Phoenix server:
+This app demonstrates the usage of `Rummage.Phoenix`
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+This app currently uses `rummage_phoenix, 1.3.0-rc.0`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Setup
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+- Git clone the repository
+- Install languages:
+  - Install elixir 1.4.5
+  - Install erlang 20.1
+  - Use `$ asdf install elixir 1.4.5`
+  - Use `$ asdf install erlang 20.1`
+- `$ mix.deps.get`
 
-## Learn more
+- Make sure you have environment variables defined for:
+  - `POSTGRES_USER`
+  - `POSTGRES_PASSWORD`
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+- `$ mix ecto.create`
+- `$ mix ecto.migrate`
+
+
+- To seed the data: (from application's root directory)
+  - `$ mix run priv/repo/seeds.exs`
+
+- Start up a `$ mix phx.server` and play with `rummage_phoenix`
+
+## Things to Try out (in the browser):
+
+
