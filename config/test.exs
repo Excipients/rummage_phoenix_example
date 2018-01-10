@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :rummage_phoenix_example, RummagePhoenixExample.Endpoint,
+config :rummage_phoenix_example, RummagePhoenixExampleWeb.Endpoint,
   http: [port: 4001],
   server: false
 
