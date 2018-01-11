@@ -10,7 +10,8 @@ defmodule RummagePhoenixExample.Store.Product do
     field :available, :boolean, default: false
     field :name, :string
     field :price, :float
-    field :category_id, :id
+
+    belongs_to :category, __MODULE__
 
     timestamps()
   end
