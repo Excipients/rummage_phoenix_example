@@ -1,6 +1,6 @@
 defmodule RummagePhoenixExample.Store.Category do
   use Ecto.Schema
-  use Rummage.Ecto, per_page: 7
+  use Rummage.Ecto, per_page: 7, repo: RummagePhoenixExample.Repo
 
   import Ecto.Changeset
   alias RummagePhoenixExample.Store.Product

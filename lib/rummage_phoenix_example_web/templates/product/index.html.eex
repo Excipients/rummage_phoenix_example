@@ -1,36 +1,27 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/categories">Products</a>
-    </div>
-    <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search by Name">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <ul class="nav navbar-nav">
-      <li><a href="#">| 1 |</a></li>
-      <li><a href="#">| 2 |</a></li>
-    </ul>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4> Listing Products </h4>
   </div>
-</nav>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Available</th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for product <- @products do %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.price %></td>
-      <td><%= product.available %></td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+  <div class="panel-body">
+    <table class="table table-striped table-bordered table-dark">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Available</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for product <- @products do %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= product.available %></td>
+          <td><%= product.category.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

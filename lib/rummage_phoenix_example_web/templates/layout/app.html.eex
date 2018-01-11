@@ -17,28 +17,36 @@
     </head>
   </head>
 
-  <div class="col-sm-3 col-lg-2">
-    <nav class="navbar navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-      <ul class="nav-sidebar-nav list-group">
-        <li class="sidebar-brand">
-          <a href="https://hex.pm/packages/rummage_ecto">
-          <img alt="Brand" height="150" width="150"
-            src="<%= static_path(@conn, "/images/RummageLogo.png") %>" class="img-responsive" >
-          </a>
-        </li>
-        <li><a href="/products" >Products</a></li>
-        <li><a href="/categories" >Categories</a></li>
-      </ul>
-    </nav>
-  </div>
-
   <div class="col-sm-9 col-lg-10">
     <body>
+      <div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header" align="center">
+            <a href="https://hex.pm/packages/rummage_ecto">
+              <img alt="Brand" height="120" width="120"
+                src="<%= static_path(@conn, "/images/RummageLogo.png") %>" class="img-responsive" >
+            </a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/products" >Products</a></li>
+              <li><a href="/categories" >Categories</a></li>
+            </ul>
+            <ul class="nav">
+            </ul>
+          </div>
+        </nav>
+      </div>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
+</br></br></br>
+</br></br></br></br>
       <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+        <div class="container">
+          <%= render @view_module, @view_template, assigns %>
+        </div>
       </main>
 
       <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
