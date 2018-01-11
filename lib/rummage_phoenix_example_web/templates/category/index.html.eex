@@ -1,24 +1,56 @@
-<h2>Listing Categories</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/categories">Categories</a>
+    </div>
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search by Name">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <ul class="nav navbar-nav">
+      <li><a href="#">| 1 |</a></li>
+      <li><a href="#">| 2 |</a></li>
+    </ul>
+  </div>
+</nav>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for category <- @categories do %>
-    <tr>
-      <td><%= category.name %></td>
-
-      <td class="text-right">
-        <span><%= link "Show", to: category_path(@conn, :show, category), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: category_path(@conn, :edit, category), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Parent</th>
+          <th>Children</th>
+          <th>Products</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%= for category <- @categories do %>
+        <tr>
+          <td><%= category.id %> </td>
+          <td><%= category.name %></td>
+          <td><%= category.category && category.category.name || "NA" %></td>
+          <td>
+            <%=
+              category.categories
+              |> Enum.map(& &1.name)
+              |> Enum.join(", ")
+            %>
+          </td>
+          <td>
+            <%=
+              category.products
+              |> Enum.map(& &1.name)
+              |> Enum.join(", ")
+            %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

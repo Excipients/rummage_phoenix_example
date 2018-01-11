@@ -9,14 +9,6 @@ use Mix.Config
 config :rummage_phoenix_example,
   ecto_repos: [RummagePhoenixExample.Repo]
 
-# Configures the endpoint
-config :rummage_phoenix_example, RummagePhoenixExampleWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "FaN896YLL9gKwvHuBqbwLNJidoUlTbLeRDw/Zd9CYLnsDLO9BqyxspTjEWj/dDZY",
-  render_errors: [view: RummagePhoenixExampleWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: RummagePhoenixExample.PubSub,
-           adapter: Phoenix.PubSub.PG2]
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

@@ -5,7 +5,9 @@ defmodule RummagePhoenixExampleWeb.CategoryController do
   alias RummagePhoenixExample.Store.Category
 
   def index(conn, _params) do
-    categories = Store.list_categories()
+    categories = Store.list_categories(
+      with: [:category, :categories, :products])
+
     render(conn, "index.html", categories: categories)
   end
 end

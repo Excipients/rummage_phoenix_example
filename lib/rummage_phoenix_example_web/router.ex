@@ -18,5 +18,6 @@ defmodule RummagePhoenixExampleWeb.Router do
 
     get "/", PageController, :index
     resources "/categories", CategoryController, only: [:index]
+    resources "/products", ProductController, only: [:index]
   end
 end

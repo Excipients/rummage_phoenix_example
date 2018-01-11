@@ -17,22 +17,23 @@
     </head>
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <a href="https://hex.pm/packages/rummage_ecto" align="center">
-        <img alt="Brand" height="150" width="150"
-					src="<%= static_path(@conn, "/images/RummageLogo.png") %>" class="img-responsive center-block" >
-				</a>
-				</br>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-            </div>
-          </div>
-        </nav>
-      </header>
+  <div class="col-sm-3 col-lg-2">
+    <nav class="navbar navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="nav-sidebar-nav list-group">
+        <li class="sidebar-brand">
+          <a href="https://hex.pm/packages/rummage_ecto">
+          <img alt="Brand" height="150" width="150"
+            src="<%= static_path(@conn, "/images/RummageLogo.png") %>" class="img-responsive" >
+          </a>
+        </li>
+        <li><a href="/products" >Products</a></li>
+        <li><a href="/categories" >Categories</a></li>
+      </ul>
+    </nav>
+  </div>
 
+  <div class="col-sm-9 col-lg-10">
+    <body>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
@@ -40,7 +41,7 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+      <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    </body>
+  </div>
 </html>

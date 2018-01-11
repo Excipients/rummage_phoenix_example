@@ -1,18 +1,22 @@
 defmodule RummagePhoenixExample.Store.Category do
   use Ecto.Schema
   import Ecto.Changeset
-  alias RummagePhoenixExample.Store.Category
+  alias RummagePhoenixExample.Store.Product
 
 
   schema "categories" do
     field :name, :string
-    field :category_id, :id
+
+    belongs_to :category, __MODULE__
+
+    has_many :categories, __MODULE__
+    has_many :products, Product
 
     timestamps()
   end
 
   @doc false
-  def changeset(%Category{} = category, attrs) do
+  def changeset(%__MODULE__{} = category, attrs) do
     category
     |> cast(attrs, [:name])
     |> validate_required([:name])
