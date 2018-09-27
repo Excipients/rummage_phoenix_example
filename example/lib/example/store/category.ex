@@ -1,12 +1,13 @@
 defmodule Example.Store.Category do
-  use Ecto.Schema
+  use Rummage.Ecto.Schema
   import Ecto.Changeset
 
 
   schema "categories" do
     field :description, :string
     field :name, :string
-    field :parent_category_id, :id
+
+    belongs_to :parent_category, __MODULE__
 
     timestamps()
   end
