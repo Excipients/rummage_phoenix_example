@@ -73,3 +73,26 @@ end)
   |> struct(attrs)
   |> Repo.insert!()
 end)
+
+# Insert 5 Physics Books
+physics_books_and_description = [
+  [name: "QED", availability: true, description: "Feynman's theory of Light and Matter"],
+  [name: "The Elegant Universe", availability: false, description: "Elegant Universe"],
+  [name: "A Brief History of Time", availability: true, description: "Brief History of time"],
+  [name: "The Grand Design", availability: false, description: "Grand Design"],
+  [name: "A Universe from Nothing", availability: true, description: "Universe from Nothing"]
+]
+
+0..4
+|> Enum.map(& [internal_code: "#{&1}xYphysicsYx#{&1}", category: physics_book, price: (&1 * 3.5) + 10.0])
+|> Enum.with_index()
+|> Enum.map(fn({attrs, index}) ->
+  physics_books_and_description
+  |> Enum.at(index)
+  |> Keyword.merge(attrs)
+end)
+|> Enum.each(fn(attrs) ->
+  Product
+  |> struct(attrs)
+  |> Repo.insert!()
+end)
