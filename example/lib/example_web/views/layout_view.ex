@@ -10,7 +10,23 @@ defmodule ExampleWeb.LayoutView do
     )
   end
 
-  defp get_class(["categories_bootstrap" | _tail], "/categories_bootstrap") do
+  defp get_class(["products_bootstrap3" | _tail], "/products_bootstrap3") do
+    "active"
+  end
+
+  defp get_class(["products_bootstrap4" | _tail], "/products_bootstrap4") do
+    "active"
+  end
+
+  defp get_class(["products_materialize" | _tail], "/products_materialize") do
+    "active"
+  end
+
+  defp get_class(["products_foundation" | _tail], "/products_foundation") do
+    "active"
+  end
+
+  defp get_class(["products_semantic" | _tail], "/products_semantic") do
     "active"
   end
 

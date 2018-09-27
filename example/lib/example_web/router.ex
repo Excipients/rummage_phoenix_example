@@ -18,11 +18,7 @@ defmodule ExampleWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/categories", CategoryController
+    resources "/categories", CategoryController, only: [:index]
+    resources "/products", ProductController, only: [:index]
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", ExampleWeb do
-  #   pipe_through :api
-  # end
 end

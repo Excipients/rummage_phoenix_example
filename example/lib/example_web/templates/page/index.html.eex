@@ -14,12 +14,13 @@
         etc.
         </br>
         </br>
+        This app shows index page for products, that have several searchable
+        and sortable fields. Products belong to a category and a category can
+        have a parent category.
+        </br>
+        </br>
         </br>
         Please click on above tabs to view the corresponding demo.
-        </br>
-        </br>
-        </br>
-        </br>
         </br>
       </div>
     </div>

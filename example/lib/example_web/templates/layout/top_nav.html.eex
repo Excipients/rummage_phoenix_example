@@ -1,19 +1,17 @@
-<div class="navbar-fixed">
-  <nav class="nav-extended" style="background-color:#95cec2 !important;">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo center">
-        <b>Rummage Example</b> <i>v: 2.0</i>
-      </a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-    <div class="nav-content">
-      <ul class="tabs tabs-transparent center">
-        <%= navbar_link(@conn, href: "/categories_bootstrap3", title: "Bootstrap 3") %>
-        <%= navbar_link(@conn, href: "/categories_bootstrap4", title: "Bootstrap 4") %>
-        <%= navbar_link(@conn, href: "/categories_materialize", title: "Materialize") %>
-        <%= navbar_link(@conn, href: "/categories_foundation", title: "Foundation") %>
-        <%= navbar_link(@conn, href: "/categories_semantic", title: "Semantic UI") %>
-      </ul>
-    </div>
-  </nav>
-</div>
+<nav class="nav-extended" style="background-color:#95cec2 !important;">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo center">
+      <b>Rummage Example</b> <i>v: 2.0</i>
+    </a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+  <div class="nav-content">
+    <ul class="tabs tabs-transparent center">
+      <%= navbar_link(@conn, href: "/products_bootstrap3", title: "Bootstrap 3") %>
+      <%= navbar_link(@conn, href: "/products_bootstrap4", title: "Bootstrap 4") %>
+      <%= navbar_link(@conn, href: "/products_materialize", title: "Materialize") %>
+      <%= navbar_link(@conn, href: "/products_foundation", title: "Foundation") %>
+      <%= navbar_link(@conn, href: "/products_semantic", title: "Semantic UI") %>
+    </ul>
+  </div>
+</nav>
