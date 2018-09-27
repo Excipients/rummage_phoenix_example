@@ -20,5 +20,12 @@ defmodule ExampleWeb.Router do
 
     resources "/categories", CategoryController, only: [:index]
     resources "/products", ProductController, only: [:index]
+
+    # Views for corresponding CSS frameworks
+    get "/products_bootstrap3", ProductController, :products_bootstrap3
+    get "/products_bootstrap4", ProductController, :products_bootstrap4
+    get "/products_materialize", ProductController, :products_materialize
+    get "/products_foundation", ProductController, :products_foundation
+    get "/products_semantic", ProductController, :products_semantic
   end
 end

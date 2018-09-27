@@ -1,0 +1,24 @@
+<h3>Semantic</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Internal Code</th>
+      <th>Availability</th>
+      <th>Category Name</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for product <- @products do %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.internal_code %></td>
+      <td><%= product.availability %></td>
+      <td><%= Enum.find(@categories, & product.category_id == &1.id).name %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

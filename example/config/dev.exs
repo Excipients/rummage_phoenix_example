@@ -30,4 +30,5 @@ config :example, Example.Repo,
   database: "example_dev",
   hostname: "localhost",
   timeout: 300_000,
+  pool_timeout: 30_000,
   pool_size: 10
