@@ -40,10 +40,31 @@ fiction_books_and_description = [
 ]
 
 0..4
-|> Enum.map(& [internal_code: "#{&1}%%fiction%%#{&1}", category: fiction_book])
+|> Enum.map(& [internal_code: "#{&1}xYfictionYx#{&1}", category: fiction_book, price: (&1 * 2.5) + 10.0])
 |> Enum.with_index()
 |> Enum.map(fn({attrs, index}) ->
   fiction_books_and_description
+  |> Enum.at(index)
+  |> Keyword.merge(attrs)
+end)
+|> Enum.each(fn(attrs) ->
+  Product
+  |> struct(attrs)
+  |> Repo.insert!()
+end)
+
+# Insert 3 History Books
+history_books_and_description = [
+  [name: "Sapiens", availability: true, description: "Sapiens"],
+  [name: "1776", availability: false, description: "1776"],
+  [name: "The Art of War", availability: false, description: "Art of War"]
+]
+
+0..2
+|> Enum.map(& [internal_code: "#{&1}xYhistoryYx#{&1}", category: history_book, price: (&1 * 1.5) + 10.0])
+|> Enum.with_index()
+|> Enum.map(fn({attrs, index}) ->
+  history_books_and_description
   |> Enum.at(index)
   |> Keyword.merge(attrs)
 end)
