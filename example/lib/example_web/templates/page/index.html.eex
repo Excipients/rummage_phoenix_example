@@ -1,36 +1,27 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+<div class="row">
+  <div class="col s4">
+    <div class="card grey lighten-2">
+      <div class="card-content blue-grey-text">
+        <img alt="Rummage Example" height="200" width="200" src="<%= static_path(@conn, "/images/rummage_logo.png") %>">
+      </div>
+    </div>
   </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+  <div class="col s8">
+    <div class="card grey lighten-2">
+      <div class="card-content blue-grey-text">
+        Welcome to Rummage Phoenix Example! This app shows off Rummage Phoenix's
+        compatibility with different CSS frameworks like Bootstrap, Foundation
+        etc.
+        </br>
+        </br>
+        </br>
+        Please click on above tabs to view the corresponding demo.
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+      </div>
+    </div>
   </div>
 </div>
