@@ -28,3 +28,15 @@
 <% end %>
   </tbody>
 </table>
+
+<ul class="pagination">
+  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>">«</a></li>
+  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage) %>">⟨</a></li>
+  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>">1</a></li>
+  <li class="page-item <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(2, @conn.request_path, @rummage) %>">2</a></li>
+  <li class="ellipsis" aria-hidden="true"></li>
+  <li class="page-item <%= rummage_pagination_current?(12, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(12, @conn.request_path, @rummage) %>">12</a></li>
+  <li class="page-item <%= rummage_pagination_current?(13, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(13, @conn.request_path, @rummage) %>">13</a></li>
+  <li class="page-item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage) %>">⟩</a></li>
+  <li class="page-item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage) %>">»</a></li>
+</ul>
