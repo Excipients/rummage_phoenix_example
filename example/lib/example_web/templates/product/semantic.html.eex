@@ -29,16 +29,6 @@
   </tbody>
 </table>
 
-<ul class="pagination">
-  <li class="waves-effect <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>"><i class="material-icons">first_page</i></a></li>
-  <li class="waves-effect"><a href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage) %>"><i class="material-icons">chevron_left</i></a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>">1</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(2, @conn.request_path, @rummage) %>">2</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(3, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(3, @conn.request_path, @rummage) %>">3</a></li>
-  <li class="waves-effect"><a href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage) %>"><i class="material-icons">chevron_right</i></a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage) %>"><i class="material-icons">last_page</i></a></li>
-</ul>
-
 <div aria-label='Pagination Navigation' role='navigation' class='ui pagination menu'>
   <a
     aria-current='false'
@@ -46,7 +36,8 @@
     value='1'
     aria-label='First item'
     type='firstItem'
-    class='item'
+    class='item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>'
+    href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>"
   >
     «
   </a>
@@ -57,29 +48,48 @@
     aria-label='Previous item'
     type='prevItem'
     class='item'
+    href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage) %>"
   >
     ⟨
   </a>
-  <a aria-current='false' tabindex='0' value='1' type='pageItem' class='item'>
+  <a
+    aria-current='false'
+    tabindex='0'
+    value='1'
+    type='pageItem'
+    class='item <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>'
+    href="<%= rummage_pagination_href(1, @conn.request_path, @rummage) %>">
     1
+  </a>
+  <a
+    aria-current='false'
+    tabindex='0'
+    value='2'
+    type='pageItem'
+    class='item <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>'
+    href="<%= rummage_pagination_href(2, @conn.request_path, @rummage) %>">
+    2
   </a>
   <a aria-current='false' tabindex='-1' value='3' type='ellipsisItem' class='disabled item'>
     ...
   </a>
-  <a aria-current='false' tabindex='0' value='4' type='pageItem' class='item'>
-    4
+  <a
+    aria-current='false'
+    tabindex='0'
+    value='12'
+    type='pageItem'
+    class='item <%= rummage_pagination_current?(12, @rummage) && "active" || "" %>'
+    href="<%= rummage_pagination_href(12, @conn.request_path, @rummage) %>">
+    12
   </a>
-  <a aria-current='true' tabindex='0' value='5' type='pageItem' class='active item'>
-    5
-  </a>
-  <a aria-current='false' tabindex='0' value='6' type='pageItem' class='item'>
-    6
-  </a>
-  <a aria-current='false' tabindex='-1' value='7' type='ellipsisItem' class='disabled item'>
-    ...
-  </a>
-  <a aria-current='false' tabindex='0' value='10' type='pageItem' class='item'>
-    10
+  <a
+    aria-current='false'
+    tabindex='0'
+    value='13'
+    type='pageItem'
+    class='item <%= rummage_pagination_current?(13, @rummage) && "active" || "" %>'
+    href="<%= rummage_pagination_href(13, @conn.request_path, @rummage) %>">
+    13
   </a>
   <a
     aria-current='false'
@@ -88,6 +98,7 @@
     aria-label='Next item'
     type='nextItem'
     class='item'
+    href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage) %>"
   >
     ⟩
   </a>
@@ -97,7 +108,8 @@
     value='10'
     aria-label='Last item'
     type='lastItem'
-    class='item'
+    class='item <%= rummage_pagination_current?(:last, @rummage) && "disabled" || "" %>'
+    href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage) %>"
   >
     »
   </a>
