@@ -15,6 +15,7 @@ config :logger, :console,
   metadata: [:user_id]
 
 config :example, Rummage.Ecto,
-  repo: Example.Repo
+  repo: Example.Repo,
+  per_page: 5
 
 import_config "#{Mix.env}.exs"
