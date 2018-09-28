@@ -7,11 +7,11 @@
   </div>
   <div class="nav-content">
     <ul class="tabs tabs-transparent center">
-      <%= navbar_link(@conn, href: "/products_bootstrap3", title: "Bootstrap 3") %>
-      <%= navbar_link(@conn, href: "/products_bootstrap4", title: "Bootstrap 4") %>
-      <%= navbar_link(@conn, href: "/products_materialize", title: "Materialize") %>
-      <%= navbar_link(@conn, href: "/products_foundation", title: "Foundation") %>
-      <%= navbar_link(@conn, href: "/products_semantic", title: "Semantic UI") %>
+      <%= navbar_link(@conn, href: "/products?css=bootstrap3", title: "Bootstrap 3") %>
+      <%= navbar_link(@conn, href: "/products?css=bootstrap4", title: "Bootstrap 4") %>
+      <%= navbar_link(@conn, href: "/products?css=materialize", title: "Materialize") %>
+      <%= navbar_link(@conn, href: "/products?css=foundation", title: "Foundation") %>
+      <%= navbar_link(@conn, href: "/products?css=semantic", title: "Semantic UI") %>
     </ul>
   </div>
 </nav>
