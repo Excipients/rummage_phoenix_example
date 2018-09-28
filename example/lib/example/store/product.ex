@@ -55,8 +55,12 @@ defmodule Example.Store.Product do
     {:fragment, "coalesce(?, ?)", :name, :description}
   end
 
-  rummage_scope :category_name, [type: :search], fn(term) ->
+  rummage_scope :category_name_like, [type: :search], fn(term) ->
     {:name, %{assoc: [inner: :category], search_term: term, search_type: :ilike}}
+  end
+
+  rummage_scope :parent_category_name_like, [type: :search], fn(term) ->
+    {:name, %{assoc: [inner: :category, inner: :parent_category], search_term: term, search_type: :ilike}}
   end
 
   rummage_scope :category_name, [type: :sort], fn(order) ->

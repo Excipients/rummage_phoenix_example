@@ -113,8 +113,13 @@ defmodule Example.Store do
       [%Product{}, ...]
 
   """
-  def list_products do
+  def list_products(rummage \\ nil)
+  def list_products(nil) do
     Repo.all(Product)
+  end
+  def list_products(rummage) do
+    {queryable, rummage} = Product.rummage(rummage)
+    {Repo.all(queryable), rummage}
   end
 
   @doc """

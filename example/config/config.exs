@@ -14,4 +14,7 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+config :example, Rummage.Ecto,
+  repo: Example.Repo
+
 import_config "#{Mix.env}.exs"
