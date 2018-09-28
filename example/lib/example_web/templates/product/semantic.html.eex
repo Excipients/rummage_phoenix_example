@@ -29,7 +29,7 @@
   </tbody>
 </table>
 
-<div aria-label='Pagination Navigation' role='navigation' class='ui pagination menu'>
+<div role='navigation' class='ui pagination menu'>
   <a
     aria-current='false'
     tabindex='0'
@@ -43,18 +43,18 @@
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='1'
     value='4'
     aria-label='Previous item'
     type='prevItem'
-    class='item'
+    class='item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>'
     href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage) %>"
   >
     ⟨
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='2'
     value='1'
     type='pageItem'
     class='item <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>'
@@ -63,7 +63,7 @@
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='3'
     value='2'
     type='pageItem'
     class='item <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>'
@@ -75,7 +75,7 @@
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='4'
     value='12'
     type='pageItem'
     class='item <%= rummage_pagination_current?(12, @rummage) && "active" || "" %>'
@@ -84,7 +84,7 @@
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='5'
     value='13'
     type='pageItem'
     class='item <%= rummage_pagination_current?(13, @rummage) && "active" || "" %>'
@@ -93,22 +93,22 @@
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='6'
     value='6'
     aria-label='Next item'
     type='nextItem'
-    class='item'
+    class='item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>'
     href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage) %>"
   >
     ⟩
   </a>
   <a
     aria-current='false'
-    tabindex='0'
+    tabindex='7'
     value='10'
     aria-label='Last item'
     type='lastItem'
-    class='item <%= rummage_pagination_current?(:last, @rummage) && "disabled" || "" %>'
+    class='item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>'
     href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage) %>"
   >
     »
