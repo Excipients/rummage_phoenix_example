@@ -1,10 +1,12 @@
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css"></script>
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/css/foundation.css">
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
 </head>
 
 <h3>Foundation</h3>
 
-<table class="table table-bordered">
+<table class="hover">
   <thead>
     <tr>
       <th>Name</th>
