@@ -20,6 +20,9 @@
   <body>
     <div class="container">
       <%= render "top_nav.html", conn: @conn %>
+      <%= if get_flash(@conn, :error) do %>
+        <div class="card-panel red lighten-2"><b><%= get_flash(@conn, :error) %></b></div>
+      <% end %>
 
       <main role="main">
         </br>
