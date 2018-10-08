@@ -14,6 +14,7 @@
     case name_assoc do
       [] -> {Map.get(name, :search_term), ""}
       [{:inner, :category}] -> {"", Map.get(name, :search_term)}
+      %{inner: :category} -> {"", Map.get(name, :search_term)}
     end
 
   internal_code = @rummage

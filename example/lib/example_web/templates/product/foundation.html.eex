@@ -5,7 +5,63 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 </head>
 
-<h3>Foundation</h3>
+<%
+  name = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:name, %{})
+
+  name_assoc = Map.get(name, :assoc, [])
+
+  {name_search_term, category_name_search_term} =
+    case name_assoc do
+      [] -> {Map.get(name, :search_term), ""}
+      [{:inner, :category}] -> {"", Map.get(name, :search_term)}
+      %{inner: :category} -> {"", Map.get(name, :search_term)}
+    end
+
+  internal_code = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:internal_code, %{})
+    |> Map.get(:search_term, "")
+%>
+
+<div style="background-color: lightgrey">
+  <h3>Foundation</h3>
+
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <input type="hidden" class="form-control" name="css" value="foundation">
+
+    <label>Search By Category Name </label>
+    <input type="text" class="form-control" name="rummage[search][category_name]" placeholder="Search By Category Name" value="<%= category_name_search_term %>">
+    <button type="submit" class="btn btn-default">
+      <i class="fi-page-search"></i>
+    </button>
+  </form>
+
+  </br>
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <input type="hidden" class="form-control" name="css" value="foundation">
+
+    <label>Search By Name </label>
+    <input type="text" class="form-control" name="rummage[search][name][search_term]" placeholder="Search By Name" value="<%= name_search_term %>">
+    <input type="hidden" class="form-control" name="rummage[search][name][search_expr]" value="where">
+    <input type="hidden" class="form-control" name="rummage[search][name][search_type]" value="ilike">
+
+    <label>Search By Internal Code </label>
+    <input type="text" class="form-control" name="rummage[search][internal_code][search_term]" placeholder="Search By Internal Code" value="<%= internal_code %>">
+    <input type="hidden" class="form-control" name="rummage[search][internal_code][search_expr]" value="where">
+    <input type="hidden" class="form-control" name="rummage[search][internal_code][search_type]" value="ilike">
+
+    <button type="submit" class="btn btn-default">
+      <i class="fi-page-search"></i>
+    </button>
+  </form>
+
+  </br>
+</div>
+
+</br>
+
 
 <table class="hover table-border" style="border: 1px solid #e6e6e6;">
   <thead>
