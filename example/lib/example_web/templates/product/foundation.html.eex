@@ -2,18 +2,19 @@
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/css/foundation.css">
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 </head>
 
 <h3>Foundation</h3>
 
-<table class="hover">
+<table class="hover table-border" style="border: 1px solid #e6e6e6;">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Internal Code</th>
-      <th>Availability</th>
-      <th>Category Name</th>
+      <th>Name <%= sort_link(%{field: :name}, @conn.request_path, @rummage, slugs: %{css: "foundation"}, css: Rummage.Phoenix.Foundation) %></th>
+      <th>Price <%= sort_link(%{field: :price}, @conn.request_path, @rummage, slugs: %{css: "foundation"}, css: Rummage.Phoenix.Foundation) %></th>
+      <th>Internal Code <%= sort_link(%{field: :internal_code}, @conn.request_path, @rummage, slugs: %{css: "foundation"}, css: Rummage.Phoenix.Foundation) %></th>
+      <th>Availability <%= sort_link(%{field: :availability}, @conn.request_path, @rummage, slugs: %{css: "foundation"}, css: Rummage.Phoenix.Foundation) %></th>
+      <th>Category Name <%= sort_link(%{scope: :category_name, type: :sort, schema: Example.Store.Product}, @conn.request_path, @rummage, slugs: %{css: "foundation"}, css: Rummage.Phoenix.Foundation) %></th>
     </tr>
   </thead>
   <tbody>
