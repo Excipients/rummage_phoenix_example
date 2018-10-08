@@ -14,11 +14,11 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Internal Code</th>
-      <th>Availability</th>
-      <th>Category Name</th>
+      <th>Name <%= sort_link(%{field: :name}, @conn.request_path, @rummage, slugs: %{css: "bootstrap3"}) %></th>
+      <th>Price <%= sort_link(%{field: :price}, @conn.request_path, @rummage, slugs: %{css: "bootstrap3"}) %></th>
+      <th>Internal Code <%= sort_link(%{field: :internal_code}, @conn.request_path, @rummage, slugs: %{css: "bootstrap3"}) %></th>
+      <th>Availability <%= sort_link(%{field: :availability}, @conn.request_path, @rummage, slugs: %{css: "bootstrap3"}) %></th>
+      <th>Category Name <%= sort_link(%{scope: :category_name, type: :sort, schema: Example.Store.Product}, @conn.request_path, @rummage, slugs: %{css: "bootstrap3"}) %></th>
     </tr>
   </thead>
   <tbody>
