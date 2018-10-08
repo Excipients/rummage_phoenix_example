@@ -34,4 +34,5 @@
   </tbody>
 </table>
 
-<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "bootstrap3"}, max_pagination_links: 3) %>
+<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "bootstrap3"},
+                     max_pagination_links: 3) %>

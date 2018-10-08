@@ -30,4 +30,5 @@
   </tbody>
 </table>
 
-<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, max_pagination_links: 3, css: Rummage.Phoenix.Bootstrap4) %>
+<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "bootstrap4"},
+                     max_pagination_links: 3, css: Rummage.Phoenix.Bootstrap4) %>
