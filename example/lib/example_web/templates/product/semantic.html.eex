@@ -1,7 +1,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
 </head>
 
 <h3>Semantic</h3>
@@ -9,11 +9,11 @@
 <table class="ui celled table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Internal Code</th>
-      <th>Availability</th>
-      <th>Category Name</th>
+      <th>Name <%= sort_link(%{field: :name}, @conn.request_path, @rummage, slugs: %{css: "semantic"}, css: Rummage.Phoenix.Semantic) %></th>
+      <th>Price <%= sort_link(%{field: :price}, @conn.request_path, @rummage, slugs: %{css: "semantic"}, css: Rummage.Phoenix.Semantic) %></th>
+      <th>Internal Code <%= sort_link(%{field: :internal_code}, @conn.request_path, @rummage, slugs: %{css: "semantic"}, css: Rummage.Phoenix.Semantic) %></th>
+      <th>Availability <%= sort_link(%{field: :availability}, @conn.request_path, @rummage, slugs: %{css: "semantic"}, css: Rummage.Phoenix.Semantic) %></th>
+      <th>Category Name <%= sort_link(%{scope: :category_name, type: :sort, schema: Example.Store.Product}, @conn.request_path, @rummage, slugs: %{css: "semantic"}, css: Rummage.Phoenix.Semantic) %></th>
     </tr>
   </thead>
   <tbody>
