@@ -19,13 +19,14 @@
       [{:inner, :category}] -> {"", Map.get(name, :search_term)}
     end
 
-  availability = @rummage
+  internal_code = @rummage
     |> Map.get(:search, %{})
-    |> Map.get(:availability, %{})
+    |> Map.get(:internal_code, %{})
     |> Map.get(:search_term, "")
 %>
 
 <div class="container" style="background-color: lightgrey">
+  </br>
   <h3>Bootstrap 4</h3>
   <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
     <div class="form-group">
@@ -52,7 +53,7 @@
       <input type="hidden" class="form-control" name="rummage[search][name][search_type]" value="ilike">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" name="rummage[search][internal_code][search_term]" placeholder="Search By Internal Code" value="<%= availability %>">
+      <input type="text" class="form-control" name="rummage[search][internal_code][search_term]" placeholder="Search By Internal Code" value="<%= internal_code %>">
       <input type="hidden" class="form-control" name="rummage[search][internal_code][search_expr]" value="where">
       <input type="hidden" class="form-control" name="rummage[search][internal_code][search_type]" value="ilike">
     </div>
