@@ -28,14 +28,6 @@
   </tbody>
 </table>
 
-<ul class="pagination">
-  <li class="waves-effect <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(1, @conn.request_path, @rummage, %{css: "materialize"}) %>"><i class="material-icons">first_page</i></a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage, %{css: "materialize"}) %>"><i class="material-icons">chevron_left</i></a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(1, @conn.request_path, @rummage, %{css: "materialize"}) %>">1</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(2, @conn.request_path, @rummage, %{css: "materialize"}) %>">2</a></li>
-  <li class="waves-effect disabled"><a class="page-link">..</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(12, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(12, @conn.request_path, @rummage, %{css: "materialize"}) %>">12</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(13, @rummage) && "active" || "" %>"><a href="<%= rummage_pagination_href(13, @conn.request_path, @rummage, %{css: "materialize"}) %>">13</a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage, %{css: "materialize"}) %>"><i class="material-icons">chevron_right</i></a></li>
-  <li class="waves-effect <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage, %{css: "materialize"}) %>"><i class="material-icons">last_page</i></a></li>
-</ul>
+<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "materialize"},
+                     max_pagination_links: 3, css: Rummage.Phoenix.Materialize) %>
+
