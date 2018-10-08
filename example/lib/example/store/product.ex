@@ -63,6 +63,10 @@ defmodule Example.Store.Product do
     {:name, %{assoc: [inner: :category, inner: :parent_category], search_term: term, search_type: :ilike}}
   end
 
+  rummage_scope :category_name, [type: :search], fn(term) ->
+    {:name, %{assoc: [inner: :category], search_term: term, search_type: :ilike}}
+  end
+
   rummage_scope :category_name, [type: :sort], fn(order) ->
     %{field: :name, assoc: [inner: :category], order: order, ci: :true}
   end

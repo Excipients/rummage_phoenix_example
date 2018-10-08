@@ -1,4 +1,6 @@
 <head>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -9,7 +11,66 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
-<h3>Bootstrap 3</h3>
+<%
+  name = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:name, %{})
+
+  name_assoc = Map.get(name, :assoc, [])
+
+  {name_search_term, category_name_search_term} =
+    case name_assoc do
+      [] -> {Map.get(name, :search_term), ""}
+      [{:inner, :category}] -> {"", Map.get(name, :search_term)}
+    end
+
+  availability = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:availability, %{})
+    |> Map.get(:search_term, "")
+%>
+
+<div class="container" style="background-color: lightgrey">
+  <h3>Bootstrap 3</h3>
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <div class="form-group">
+      <input type="hidden" class="form-control" name="css" value="bootstrap3">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][category_name]" placeholder="Search By Category Name" value="<%= category_name_search_term %>">
+    </div>
+    <button type="submit" class="btn btn-default">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+  </form>
+
+  </br>
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <div class="form-group">
+      <input type="hidden" class="form-control" name="css" value="bootstrap3">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][name][search_term]" placeholder="Search By Name" value="<%= name_search_term %>">
+      <input type="hidden" class="form-control" name="rummage[search][name][search_expr]" value="where">
+      <input type="hidden" class="form-control" name="rummage[search][name][search_type]" value="ilike">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][internal_code][search_term]" placeholder="Search By Internal Code" value="<%= availability %>">
+      <input type="hidden" class="form-control" name="rummage[search][internal_code][search_expr]" value="where">
+      <input type="hidden" class="form-control" name="rummage[search][internal_code][search_type]" value="ilike">
+    </div>
+
+    <button type="submit" class="btn btn-default">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+  </form>
+
+  </br>
+</div>
+
+</br>
 
 <table class="table table-bordered">
   <thead>

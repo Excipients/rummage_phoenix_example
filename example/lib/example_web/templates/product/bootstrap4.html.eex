@@ -6,7 +6,66 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
 </head>
 
-<h3>Bootstrap 4</h3>
+<%
+  name = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:name, %{})
+
+  name_assoc = Map.get(name, :assoc, [])
+
+  {name_search_term, category_name_search_term} =
+    case name_assoc do
+      [] -> {Map.get(name, :search_term), ""}
+      [{:inner, :category}] -> {"", Map.get(name, :search_term)}
+    end
+
+  availability = @rummage
+    |> Map.get(:search, %{})
+    |> Map.get(:availability, %{})
+    |> Map.get(:search_term, "")
+%>
+
+<div class="container" style="background-color: lightgrey">
+  <h3>Bootstrap 4</h3>
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <div class="form-group">
+      <input type="hidden" class="form-control" name="css" value="bootstrap4">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][category_name]" placeholder="Search By Category Name" value="<%= category_name_search_term %>">
+    </div>
+    <button type="submit" class="btn btn-default">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </form>
+
+  </br>
+  <form class="form" action="<%= product_path(@conn, :index) %>" method="get">
+    <div class="form-group">
+      <input type="hidden" class="form-control" name="css" value="bootstrap4">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][name][search_term]" placeholder="Search By Name" value="<%= name_search_term %>">
+      <input type="hidden" class="form-control" name="rummage[search][name][search_expr]" value="where">
+      <input type="hidden" class="form-control" name="rummage[search][name][search_type]" value="ilike">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rummage[search][internal_code][search_term]" placeholder="Search By Internal Code" value="<%= availability %>">
+      <input type="hidden" class="form-control" name="rummage[search][internal_code][search_expr]" value="where">
+      <input type="hidden" class="form-control" name="rummage[search][internal_code][search_type]" value="ilike">
+    </div>
+
+    <button type="submit" class="btn btn-default">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
+  </form>
+
+  </br>
+</div>
+
+</br>
 
 <table class="table table-bordered">
   <thead>
