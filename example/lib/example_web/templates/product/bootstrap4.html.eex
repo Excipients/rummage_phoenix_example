@@ -3,6 +3,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
 </head>
 
 <h3>Bootstrap 4</h3>
@@ -10,11 +11,11 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Internal Code</th>
-      <th>Availability</th>
-      <th>Category Name</th>
+      <th>Name <%= sort_link(%{field: :name}, @conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, css: Rummage.Phoenix.Bootstrap4) %></th>
+      <th>Price <%= sort_link(%{field: :price}, @conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, css: Rummage.Phoenix.Bootstrap4) %></th>
+      <th>Internal Code <%= sort_link(%{field: :internal_code}, @conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, css: Rummage.Phoenix.Bootstrap4) %></th>
+      <th>Availability <%= sort_link(%{field: :availability}, @conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, css: Rummage.Phoenix.Bootstrap4) %></th>
+      <th>Category Name <%= sort_link(%{scope: :category_name, type: :sort, schema: Example.Store.Product}, @conn.request_path, @rummage, slugs: %{css: "bootstrap4"}, css: Rummage.Phoenix.Bootstrap4) %></th>
     </tr>
   </thead>
   <tbody>
