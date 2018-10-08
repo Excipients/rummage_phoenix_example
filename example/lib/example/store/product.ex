@@ -4,7 +4,7 @@ defmodule Example.Store.Product do
   and boolean values
   """
 
-  use Rummage.Ecto.Schema, per_page: 1,
+  use Rummage.Ecto.Schema, per_page: 3,
     search: Rummage.Ecto.Hook.CustomSearch,
     sort: Rummage.Ecto.Hook.CustomSort,
     paginate: Rummage.Ecto.Hook.CustomPaginate

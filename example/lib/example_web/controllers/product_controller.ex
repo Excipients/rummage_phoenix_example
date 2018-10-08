@@ -26,10 +26,6 @@ defmodule ExampleWeb.ProductController do
         |> redirect(to: "/")
         |> halt()
     end
-
-    products = Store.list_products()
-    categories = Store.list_categories()
-    render(conn, "index.json", products: products, categories: categories)
   end
 
   def products_bootstrap3(conn, params) do

@@ -34,14 +34,4 @@
   </tbody>
 </table>
 
-<ul class="pagination">
-  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(1, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">«</a></li>
-  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:prev, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">⟨</a></li>
-  <li class="page-item <%= rummage_pagination_current?(1, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(1, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">1</a></li>
-  <li class="page-item <%= rummage_pagination_current?(2, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(2, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">2</a></li>
-  <li class="page-item disabled"><a class="page-link">..</a></li>
-  <li class="page-item <%= rummage_pagination_current?(12, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(12, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">12</a></li>
-  <li class="page-item <%= rummage_pagination_current?(13, @rummage) && "active" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(13, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">13</a></li>
-  <li class="page-item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:next, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">⟩</a></li>
-  <li class="page-item <%= rummage_pagination_current?(:max, @rummage) && "disabled" || "" %>"><a class="page-link" href="<%= rummage_pagination_href(:last, @conn.request_path, @rummage, %{css: "bootstrap3"}) %>">»</a></li>
-</ul>
+<%= pagination_links(@conn.request_path, @rummage, slugs: %{css: "bootstrap3"}, max_pagination_links: 3) %>
